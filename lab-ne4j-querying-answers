@@ -1,0 +1,4 @@
+1. Basic Node Retrieval
+
+MATCH (m:Movie) WHERE m.released = 1999
+RETURN m.title, m.released
