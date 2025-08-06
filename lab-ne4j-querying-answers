@@ -70,3 +70,6 @@ RETURN p.name as Actor, movieCount
 Task: Find all directors who also acted in their own movies.
 Goal: Combine multiple relationships on the same node.
 
+MATCH (p:Person)-[:DIRECTED]->(m:Movie)
+MATCH (p:Person)-[:ACTED_IN]->(m:Movie)
+RETURN DISTINCT p.name
