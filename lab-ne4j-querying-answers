@@ -56,3 +56,12 @@ MATCH path=shortestPath(
 (:Person {name:"Tom Hanks"})-[*]-(:Person {name:"Meg Ryan"}) 
 )
 RETURN path, length(path) / 2 AS distance
+
+9. Aggregation with HAVING
+Task: List actors who have acted in at least 3 movies.
+Goal: Use WITH and HAVING-like filtering.
+
+MATCH (p:Person)-[:ACTED_IN]-(m:Movie)
+WITH p, count(m) AS movieCount
+WHERE movieCount >= 3
+RETURN p.name as Actor, movieCount
