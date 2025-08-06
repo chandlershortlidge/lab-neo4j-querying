@@ -47,3 +47,12 @@ Goal: Filter relationship types dynamically.
 
 MATCH (p:Person)-[:ACTED_IN|DIRECTED]->(:Movie {title: "Cloud Atlas"})
 RETURN DISTINCT p.name
+
+8. Shortest Path Between Actors
+Task: Find the shortest path between Tom Hanks and Meg Ryan through co-acting.
+Goal: Use shortestPath and variable-length relationships.
+
+MATCH path=shortestPath(
+(:Person {name:"Tom Hanks"})-[*]-(:Person {name:"Meg Ryan"}) 
+)
+RETURN path, length(path) / 2 AS distance
