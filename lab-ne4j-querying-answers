@@ -2,3 +2,13 @@
 
 MATCH (m:Movie) WHERE m.released = 1999
 RETURN m.title, m.released
+
+2. Find a Person by Name
+
+MATCH (p:Person {name: "Keanu Reeves"})
+RETURN p
+
+3. Find Actors in a Movie
+
+MATCH (p:Person)-[r]->(:Movie {title: "The Matrix"})
+RETURN p.name
