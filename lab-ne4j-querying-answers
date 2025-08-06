@@ -40,3 +40,10 @@ Goal: Use variable-length patterns and deduplication (DISTINCT).
 
 MATCH (:Person {name: "Tom Hanks"})-[:ACTED_IN]->(m)<-[:ACTED_IN]-(coActors)
 RETURN DISTINCT coActors.name
+
+7. Movies with Multiple Relationships
+Task: Find all people who either acted in or directed Cloud Atlas.
+Goal: Filter relationship types dynamically.    
+
+MATCH (p:Person)-[:ACTED_IN|DIRECTED]->(:Movie {title: "Cloud Atlas"})
+RETURN DISTINCT p.name
