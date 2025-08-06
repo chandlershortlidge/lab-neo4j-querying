@@ -65,3 +65,8 @@ MATCH (p:Person)-[:ACTED_IN]-(m:Movie)
 WITH p, count(m) AS movieCount
 WHERE movieCount >= 3
 RETURN p.name as Actor, movieCount
+
+10. Complex Graph Pattern (Advanced)
+Task: Find all directors who also acted in their own movies.
+Goal: Combine multiple relationships on the same node.
+
